@@ -5,6 +5,7 @@ from django.db import models
 class Level(models.Model):
   livello = models.CharField(max_length=50)
   descrizione = models.CharField(max_length=150)
+  costo_ora_base = models.DecimalField(max_digits=5,decimal_place=2)
 
 class Task(models.Model):
   mansione = models.CharField(max_length=50)
@@ -34,3 +35,11 @@ class Assignments(models.Model):
   lavoratore = models.ForeignKey(Worker, on_delete=models.CASCADE)
   task = models.ForeignKey(Task, on_delete=models.PROTECT)
   data_assegnazione = models.DateField()
+
+class TimeRecording(models.Model):
+  giorno = models.DateField()
+  ore_diurne_figurative = models.IntegerField()
+  ore_diurne_reali = models.IntegerField()
+  ore_notturne_figurative = models.IntegerField()
+  ore_notturne_reali = models.IntegerField()
+  lavoratore = models.ForeignKey(Worker, on_delete=models.PROTECT)
