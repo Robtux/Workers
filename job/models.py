@@ -1,9 +1,8 @@
 from django.db import models
 
-
 # Create your models here.
 class Contract(models.Model):
-    codice_commessa = models.CharField(max_length=8)
+    codice_commessa = models.CharField(max_length=8, unique=True)
     nome_commessa = models.CharField(max_length=50)
 
 class SubContract(models.Model):
