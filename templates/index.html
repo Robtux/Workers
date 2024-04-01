@@ -1,14 +1,38 @@
 {% extends 'base_generic.html' %}
 
-{% block content %}
-    <h1>Worker Project Home</h1>
-    <p>Benvenuti nel sito del progetto Worker, per la gestione 
-        del personale e delle commesse della tua azienda</p>
+{% block css_section %}
 
-    <h2>Contenuto del sito</h2>
-    <p>Il gestionale contiene la registrazione dei seguenti dati:</p>
-    <ul>
-        <li><strong>Dipendenti: </strong> {{ num_workers }}</li>
-        <li><strong>Commesse: </strong> {{ num_contracts }}</li>
-    </ul>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/heroes.css' %}" />
+
+{% endblock %}
+
+{% block body_section %}
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Progetto WORKER</h1>
+        <p class="col-lg-10 fs-4">Pagina di accesso registrazione e visualizzazione datidati</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Ricordami
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Accedi</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Cliccando su Accedi, accetti i termini e le condizioni d'uso.</small>
+        </form>
+      </div>
+    </div>
 {% endblock %}

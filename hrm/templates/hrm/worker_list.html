@@ -1,0 +1,14 @@
+{% block content %}
+  <h1>Elenco del personale</h1>
+  {% if worker_list %}
+    <ul>
+      {% for worker in worker_list %}
+      <li>
+        <a href="{{ worker.get_absolute_url }}">{{ worker }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Non ci sono dipendenti registrati.</p>
+  {% endif %}
+{% endblock %}
