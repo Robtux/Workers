@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h1>Worker Project Home</h1>
+    <p>Benvenuti nel sito del progetto Worker, per la gestione 
+        del personale e delle commesse della tua azienda</p>
+
+    <h2>Contenuto del sito</h2>
+    <p>Il gestionale contiene la registrazione dei seguenti dati:</p>
+    <ul>
+        <li><strong>Dipendenti: </strong> {{ num_workers }}</li>
+        <li><strong>Commesse: </strong> {{ num_contracts }}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,35 @@
+/*
+ *  Document   : styles.css
+ *  Author     : Robtux
+ *  Description: The main stylesheet of the template
+ *
+ *  Structure (with shortcodes):
+ *      (#m01mls) MAIN LAYOUT
+ *      (#m02hds) HEADER
+ *      (#m03sdb) SIDEBAR
+ *      (#m04mcs) MAIN CONTENT
+ *      (#m05bos) BOOTSTRAP OVERWRITE/EXTEND STYLES
+ *      (#m06ths) THEME
+ *      (#m07hes) HELPERS
+ *      (#m08res) RESPONSIVE
+ *      (#m09rts) RETINA
+ */
+
+/*
+=================================================================
+(#m01mls) MAIN LAYOUT
+=================================================================
+*/
+
+
+
+/*
+=================================================================
+(#m03sdb) SIDEBAR
+=================================================================
+*/
+.sidebar-nav {
+    margin: 20px;
+    padding: 0;
+    list-style: none;
+}
