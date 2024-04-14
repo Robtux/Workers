@@ -17,8 +17,8 @@ class Task(models.Model):
   mansione = models.CharField(max_length=50)
   descrizione = models.CharField(max_length=150)
 
-"""Classe Worker"""
-class Worker(models.Model):
+"""Worker Object"""
+class Employee(models.Model):
   nome = models.CharField(max_length=50)
   cognome = models.CharField(max_length=50)
   data_nascita = models.DateField()
@@ -38,8 +38,8 @@ class Worker(models.Model):
 
   # Methods
   def get_absolute_url(self):
-    """Returns the URL to access a particular instance of worker"""
-    return reverse('worker-detail', args=[str(self.id)])
+    """Returns the URL to access a particular instance of Employee"""
+    return reverse('employee-detail', args=[str(self.id)])
 
   def __str__(self):
     """String for representing the worker object (in Admin site etc.)."""
@@ -48,12 +48,12 @@ class Worker(models.Model):
 
 """Classe Career"""
 class Career(models.Model):
-  lavoratore = models.ForeignKey(Worker, on_delete=models.CASCADE)
+  lavoratore = models.ForeignKey(Employee, on_delete=models.CASCADE)
   livello = models.ForeignKey(Level, on_delete=models.PROTECT)
   data_assegnazione = models.DateField()
 
 class Assignments(models.Model):
-  lavoratore = models.ForeignKey(Worker, on_delete=models.CASCADE)
+  lavoratore = models.ForeignKey(Employee, on_delete=models.CASCADE)
   task = models.ForeignKey(Task, on_delete=models.PROTECT)
   data_assegnazione = models.DateField()
 
@@ -63,5 +63,5 @@ class TimeRecording(models.Model):
   ore_diurne_reali = models.IntegerField()
   ore_notturne_figurative = models.IntegerField()
   ore_notturne_reali = models.IntegerField()
-  lavoratore = models.ForeignKey(Worker, on_delete=models.PROTECT,blank=False)
+  lavoratore = models.ForeignKey(Employee, on_delete=models.PROTECT,blank=False)
   commessa = models.ForeignKey(job_models.Contract, on_delete=models.PROTECT, null=True)

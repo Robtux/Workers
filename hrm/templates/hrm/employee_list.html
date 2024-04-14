@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block body_section %}
+  <h1>Elenco del personale</h1>
+  {% if employee_list %}
+    <ul>
+      {% for employee in employee_list %}
+      <li>
+        <a href="{{ employee.get_absolute_url }}">{{ employee }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Non ci sono dipendenti registrati.</p>
+  {% endif %}
+{% endblock %}
