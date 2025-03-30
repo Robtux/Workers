@@ -11,6 +11,9 @@ class Level(models.Model):
   descrizione = models.CharField(max_length=150)
   costo_ora_base = models.DecimalField(max_digits=5,decimal_places=2,default=0)
 
+  def __str__(self):
+    return self.livello + ": " + self.descrizione + " (Euro " + str(self.costo_ora_base) + ")"
+
 
 
 class Task(models.Model):
@@ -44,6 +47,10 @@ class Employee(models.Model):
   def __str__(self):
     """String for representing the worker object (in Admin site etc.)."""
     return self.cognome + " " + self.nome + " (" + self.data_nascita.strftime("%d/%m/%Y") + ")"
+  
+  def get_actual_level(self):
+    """return the actual level"""
+    return self.carriera.all()
 
 
 """Classe Career"""
@@ -51,6 +58,10 @@ class Career(models.Model):
   lavoratore = models.ForeignKey(Employee, on_delete=models.CASCADE)
   livello = models.ForeignKey(Level, on_delete=models.PROTECT)
   data_assegnazione = models.DateField()
+
+  """def __str__(self):
+    return self.id + ": " + self.lavoratore + " " + self.livello.livello + " " + self.data_assegnazione.strftime("%d/%m/%Y")
+  """
 
 class Assignments(models.Model):
   lavoratore = models.ForeignKey(Employee, on_delete=models.CASCADE)

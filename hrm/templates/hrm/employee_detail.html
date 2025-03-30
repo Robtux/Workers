@@ -1,0 +1,21 @@
+<!--
+This block is used to display detailed information about an employee.
+
+Parameters:
+- employee: An object representing the employee. It should have the following attributes:
+  - cognome: The surname of the employee.
+  - nome: The name of the employee.
+  - data_nascita: The date of birth of the employee.
+  - get_actual_level: A method that returns the current level of the employee.
+  - incarichi: The current position or job title of the employee.
+
+Return:
+- None. This block only displays information and does not return any value.
+-->
+{% block body_section %}
+  <h1>Dipendente: {{employee.cognome}} {{employee.nome}}</h1>
+  <p>Data di nascita: {{employee.data_nascita}}</p>
+  <p>Livello attuale: {{employee.get_actual_level}}</p>
+  <p>Incarico attuale: {{employee.incarichi}}
+
+  {% endblock %}
